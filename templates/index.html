@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Flask Blog</title>
+      <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+<h1>Welcome to my Flask Blog!</h1>
+{% if blog_length > 0 %}
+     <table>
+  <thead>
+    <tr>
+      <th scope="col">Post id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+      <th scope="col">Content</th>
+         <th scope="col">Update</th>
+         <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for article in blog_posts %}
+        <tr>
+             <td>{{ article['id'] }} </td>
+              <td>{{ article['title'] }} </td>
+               <td>{{ article['author'] }} </td>
+               <td>{{ article['content'] }}</td>
+            <td><a href="/update/{{article['id'] }}">Update</a></td>
+            <td><a href="/delete/{{article['id'] }}">Delete</a></td>
+        </tr>
+    {% endfor %}
+{% else %}
+  <td>No available articles to show</td>
+{% endif %}
+  </tbody>
+</table>
+<p><a href="/add" title="add new article"> Add an article </a></p>
+</body>
+</html>

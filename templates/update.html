@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Blog Post</title>
+  <link rel="stylesheet" href="../static/form.css">
+</head>
+
+
+<body>
+    <div class="container">
+    <h1>Update article Post -> {{ post['title']}} </h1>
+    <form action="/update/{{post['id']}}" method='POST' class="form">
+          <div class="underline"></div>
+            <label for="title">title</label>
+            <br />
+         <div class="input-data">
+        <input type="text" id="title" name="title" value ="{{post['title']}}" required>
+         </div>
+            <label for="author">autor</label>
+            <br />
+             <div class="underline"></div>
+         <div class="input-data">
+
+        <input type="text" id="author" name="author" value ="{{post['author']}}"  required>
+         </div>
+           <div class="underline"></div>
+            <label for="">content</label>
+            <br />
+        <div class="input-data textarea">
+      <textarea  id="content" name="content" required>{{post['content']}}</textarea>
+        </div>
+          <br />
+
+         <div class="form-row submit-btn">
+               <div class="input-data">
+                  <div class="inner"></div>
+                  <input type="submit" value="Edit">
+               </div>
+            </div>
+
+    </form>
+        <p><a href="/" title="back to homepage">Back to Homepage </a></p>
+</div>
+
+
+
+</body>
+</html>
+
